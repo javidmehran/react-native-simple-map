@@ -2,7 +2,8 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-simple-map": ["./src/index"]
+      "react-native-simple-map": ["./src/index"],
+      "react-native-simple-map/zoom": ["./src/zoom"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

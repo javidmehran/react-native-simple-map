@@ -1,7 +1,7 @@
 {
   "name": "react-native-simple-map",
   "version": "0.1.0",
-  "description": "Create beautiful SVG maps in react with d3-geo and topojson using a declarative api.",
+  "description": "Create beautiful, interactive SVG maps in React Native with d3-geo and TopoJSON. A React Native port of react-simple-maps.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
@@ -10,22 +10,16 @@
       "types": "./lib/typescript/src/index.d.ts",
       "default": "./lib/module/index.js"
     },
+    "./zoom": {
+      "source": "./src/zoom.tsx",
+      "types": "./lib/typescript/src/zoom.d.ts",
+      "default": "./lib/module/zoom.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
     "src",
     "lib",
-    "android",
-    "ios",
-    "cpp",
-    "*.podspec",
-    "react-native.config.js",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -40,10 +34,17 @@
     "test": "jest",
     "release": "release-it --only-version",
     "web": "vite",
-    "build:web": "vite build"
+    "build:web": "vite build",
+    "publish": "yarn prepare && npm pack --dry-run && npm version major && npm publish --//registry.npmjs.org/:_authToken="
   },
   "keywords": [
     "react-native",
+    "maps",
+    "svg",
+    "d3-geo",
+    "topojson",
+    "geographies",
+    "choropleth",
     "ios",
     "android"
   ],
@@ -70,7 +71,10 @@
     "@react-native/eslint-config": "0.85.0",
     "@react-native/jest-preset": "0.85.0",
     "@release-it/conventional-changelog": "^10.0.6",
+    "@types/d3-geo": "^3.1.0",
     "@types/react": "^19.2.0",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
     "commitlint": "^20.5.0",
     "del-cli": "^7.0.0",
     "eslint": "^9.39.4",
@@ -83,14 +87,25 @@
     "react": "19.2.3",
     "react-native": "0.85.0",
     "react-native-builder-bob": "^0.41.0",
+    "react-native-gesture-handler": "^2.27.2",
+    "react-native-reanimated": "^4.4.0",
+    "react-native-svg": "^15.15.5",
     "react-native-web": "~0.21.1",
+    "react-native-worklets": "^0.9.1",
     "release-it": "^19.2.4",
     "turbo": "^2.8.21",
     "typescript": "^6.0.2"
   },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0"
+  },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-gesture-handler": ">=2.0.0",
+    "react-native-reanimated": ">=3.0.0",
+    "react-native-svg": ">=13.0.0"
   },
   "workspaces": [
     "example"
