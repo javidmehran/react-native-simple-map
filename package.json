@@ -1,6 +1,6 @@
 {
   "name": "react-native-simple-map",
-  "version": "3.0.0",
+  "version": "2.0.0",
   "description": "Create beautiful, interactive SVG maps in React Native with d3-geo and TopoJSON. A React Native port of react-simple-maps.",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -34,8 +34,7 @@
     "test": "jest",
     "release": "release-it --only-version",
     "web": "vite",
-    "build:web": "vite build",
-    "publish": "yarn prepare && npm pack --dry-run && npm version major && npm publish --//registry.npmjs.org/:_authToken="
+    "build:web": "vite build"
   },
   "keywords": [
     "react-native",
